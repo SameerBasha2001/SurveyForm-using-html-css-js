@@ -32,8 +32,8 @@ jobs:
           name: static-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
+        run: unzip -o release.zip  # The -o flag will overwrite any existing files without prompting
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
