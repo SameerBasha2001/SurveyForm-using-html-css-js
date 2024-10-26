@@ -38,6 +38,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
+          # Remove client-id, tenant-id, and subscription-id if using OIDC
+          auth-type: 'aad'  # Specify authentication type
+          # If still needed, keep the original parameters
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D4402950EBBA4AF48568864E1E535ACE }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3855483920644596851A1E4F54DC32D8 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_23B3C532AFA04A9F8B47EE8AB8962CE9 }}
